@@ -1,0 +1,129 @@
+baseURL: https://blog.canghai.org/
+title: Canghai's Blog
+
+enableInlineShortcodes: true
+enableEmoji: true
+enableRobotsTXT: true
+hasCJKLanguage: true
+
+googleAnalytics: G-Z2RP36EDEG
+
+pagination:
+  pagerSize: 10
+
+defaultContentLanguage: zh
+
+languages:
+    zh:
+        languageName: "简体中文"
+        menu:
+            main:
+                - identifier: home
+                  name: 主页
+                  url: /
+                  weight: 10
+                - identifier: posts
+                  name: 文章
+                  url: posts
+                  weight: 20
+                - identifier: travel
+                  name: 旅行
+                  url: travel
+                  weight: 30
+                - identifier: tags
+                  name: 标签
+                  url: tags
+                  weight: 40
+                - identifier: archives
+                  name: 归档
+                  url: archives
+                  weight: 50
+                - identifier: search
+                  name: 搜索
+                  url: search
+                  weight: 60
+                - identifier: about
+                  name: 关于
+                  url: "https://about.canghai.org/"
+                  weight: 70
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
+
+params:
+    env: production
+    description: "欢迎光临Canghai's Blog，记录一些折腾的日常，技术含量不高，希望对你有所帮助！"
+    defaultTheme: auto
+    disableThemeToggle: false
+    DateFormat: "2006-01-02"
+    ShowReadingTime: true
+    disableSpecialistPost: true
+    ShowBreadCrumbs: true
+    ShowCodeCopyButtons: true
+    hideFooter: false
+    ShowWordCount: true
+    VisitCount: true
+    ShowLastMod: true
+    ShowToc: true
+    TocOpen: true
+    comments: true
+    math: true
+    homeInfoParams:
+        Title: "欢迎光临我的博客！"
+
+    socialIcons:
+        - name: github
+          url: "https://github.com/"
+        - name: QQ
+          url: "https://im.qq.com/"
+        - name: bilibili
+          url: "https://www.bilibili.com/"
+
+    label:
+        text: "Canghai's Blog"
+
+    assets:
+        favicon: "https://cdn.canghai.org/images/icon_blog.svg"
+        favicon16x16: "https://cdn.canghai.org/images/icon_blog.svg"
+        favicon32x32: "https://cdn.canghai.org/images/icon_blog.svg"
+        apple_touch_icon: "https://cdn.canghai.org/images/icon_blog.svg"
+        safari_pinned_tab: "https://cdn.canghai.org/images/icon_blog.svg"
+
+    cover:
+        hidden: false
+        hiddenInList: false
+        hiddenInSingle: false
+
+    fuseOpts:
+        isCaseSensitive: false
+        shouldSort: true
+        location: 0
+        distance: 1000
+        threshold: 0.4
+        minMatchCharLength: 0
+        keys: [ "title", "permalink", "summary" ]
+
+    StartYear: 2016
+    StartDate: 01/01/2016 00:00:00
+
+    twikoo:
+        version: 1.6.41
+        id: https://twikoo.canghai.org/
+
+taxonomies:
+    category: categories
+    tag: tags
+    series: series
+
+markup:
+    goldmark:
+        renderer:
+            unsafe: true
+    highlight:
+        codeFences: true
+        guessSyntax: true
+        lineNos: false
+        style: monokai
