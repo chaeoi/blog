@@ -1,7 +1,7 @@
 ---
 title: "简单的Nginx配置"
 date: 2022-10-15
-lastmod: 2022-10-20
+lastmod: 2025-09-08
 author: ["沧海"]
 tags: ["Nginx"]
 description: ""
@@ -137,6 +137,7 @@ wz7MQiazno/JrI0hYXi3jwcG
 ```
 
 #### 快速配置Nginx
+按照推荐的`nginx.conf`配置，其中**http**模块包含`/etc/nginx/conf.d/`内的所有`*.conf`文件的配置，**stream**模块包含`/etc/nginx/conf.d/`内的所有`*.stream`文件的配置，下面有几个例子可以参考
 - 转发从**任意域名**访问服务器**80**、**443**端口到 ~~404~~
 ```nginx
 server {
@@ -202,6 +203,16 @@ server {
     location / {
         try_files $uri $uri/ =404;
     }
+}
+```
+- 转发所有`TCP/UDP`到指定地址
+```nginx
+server{
+    listen [::]:12345;
+    proxy_ssl on;
+    proxy_ssl_protocols TLSv1.2 TLSv1.3;
+    proxy_ssl_ciphers HIGH:!aNULL:!MD5;
+    proxy_pass smtp.larksuite.com:465;
 }
 ```
 #### 重新加载Nginx
