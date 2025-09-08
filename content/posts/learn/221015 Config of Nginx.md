@@ -205,7 +205,7 @@ server {
     }
 }
 ```
-- 转发所有`TCP/UDP`到指定地址
+- 转发所有`TCP/UDP`流量到指定地址
 ```nginx
 server{
     listen [::]:12345;
