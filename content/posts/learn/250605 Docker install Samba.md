@@ -10,7 +10,7 @@ TocOpen: true
 hidemeta: false
 showbreadcrumbs: true
 ---
-- 自 1992 年以来，Samba 一直为所有使用 SMB/CIFS 协议的客户端（如所有版本的 DOS 和 Windows、OS/2、Linux 以及其他许多系统）提供安全、稳定且快速的文件和打印服务。推荐使用Docker一键部署。
+自1992年以来，**Samba**一直为所有使用 SMB/CIFS 协议的客户端（如所有版本的 DOS 和 Windows、OS/2、Linux 以及其他许多系统）提供安全、稳定且快速的文件和打印服务。推荐使用**Docker**一键部署。
 
 ```c
 docker run -d \
@@ -20,10 +20,9 @@ docker run -d \
     -v /mnt:/mnt \
     -v /opt/samba:/etc/samba \
     dperson/samba \
-    -u "canghai;cK0OyUF0s38jl4BJKUmYq2Rby"
+    -u "canghai;123456"
 ```
-
-- 推荐配置如下
+推荐配置如下
 
 ```conf
 [global]
@@ -62,8 +61,8 @@ docker run -d \
    fruit:veto_appledouble = no
    fruit:wipe_intentionally_left_blank_rfork = yes
 
-[mmd]
-   path = /mnt/mmd
+[disk]
+   path = /mnt/disk
    browsable = yes
    read only = no
    guest ok = no
@@ -74,19 +73,17 @@ docker run -d \
    write list = canghai
 ```
 
-- 有几点需要注意的地方：
+有几点需要注意的地方：
 
-Windows 无法访问 Samba将
+- Windows 无法访问 Samba可修改`map to guest`解决
 ```c
 map to guest = bad user
 ```
-改为
-
 ```c
 map to guest = never
 ```
 
-禁用回收站，将
+- 禁用回收站，可修改`vfs objects`字段
 ```c
 vfs objects = catia fruit recycle streams_xattr
 recycle:keeptree = yes
@@ -94,7 +91,6 @@ recycle:maxsize = 0
 recycle:repository = .deleted
 recycle:versions = yes
 ```
-改为
 ```c
 vfs objects = catia fruit streams_xattr
 ```
