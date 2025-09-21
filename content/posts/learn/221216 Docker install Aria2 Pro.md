@@ -17,8 +17,8 @@ Aria2 是目前最强大的全能型**下载工具**，它支持 BT、磁力、H
 docker run -d \
     --name aria2 \
     --restart always \
-    --log-opt max-size=1m \
     --network host \
+    --log-opt max-size=1m \
     -e PUID=$UID \
     -e PGID=$GID \
     -e IPV6_MODE=true \
