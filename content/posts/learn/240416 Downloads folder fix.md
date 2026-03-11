@@ -3,7 +3,7 @@ title: "解决下载文件夹变成 “Downloads”"
 date: 2024-04-16
 lastmod: 2024-04-16
 author: ["沧海"]
-tags: ["Win10"]
+tags: ["Windows"]
 description: "通过重建 Downloads 目录的 desktop.ini，把资源管理器里突然变成英文的“Downloads”恢复成中文“下载”。"
 comments: true
 showToc: false

@@ -3,7 +3,7 @@ title: "删除Windows Defender保护记录"
 date: 2020-08-25
 lastmod: 2020-08-25
 author: ["沧海"]
-tags: ["Win10"]
+tags: ["Windows"]
 description: ""
 comments: true
 showToc: false

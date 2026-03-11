@@ -3,7 +3,7 @@ title: "重置Winsock目录"
 date: 2020-12-29
 lastmod: 2020-12-29
 author: ["沧海"]
-tags: ["Win10"]
+tags: ["Windows"]
 description: ""
 comments: true
 showToc: false

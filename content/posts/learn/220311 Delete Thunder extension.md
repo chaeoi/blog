@@ -3,7 +3,7 @@ title: "停止迅雷自动安装浏览器扩展"
 date: 2022-03-11
 lastmod: 2022-03-11
 author: ["沧海"]
-tags: ["Win10"]
+tags: ["Windows"]
 description: ""
 comments: true
 showToc: false

@@ -3,7 +3,7 @@ title: "Microsoft Edge“由你的组织管理”如何解决"
 date: 2023-12-30
 lastmod: 2023-12-30
 author: ["沧海"]
-tags: ["Edge", "Win10"]
+tags: ["Edge", "Windows"]
 description: "Edge 显示“由你的组织管理”时，通常是本机存在浏览器策略项。本文记录最直接的排查和清理方式。"
 comments: true
 showToc: false

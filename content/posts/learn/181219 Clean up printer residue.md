@@ -3,7 +3,7 @@ title: "清除Win10打印机残留"
 date: 2018-12-19
 lastmod: 2018-12-19
 author: ["沧海"]
-tags: ["Win10"]
+tags: ["Windows"]
 description: ""
 comments: true
 showToc: false

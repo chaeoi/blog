@@ -3,7 +3,7 @@ title: "删除Win10连接过的网络名"
 date: 2020-12-18
 lastmod: 2020-12-20
 author: ["沧海"]
-tags: ["Win10"]
+tags: ["Windows"]
 description: ""
 comments: true
 showToc: false

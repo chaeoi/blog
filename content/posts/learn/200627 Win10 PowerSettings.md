@@ -3,7 +3,7 @@ title: "Win10电源选项失效，两分钟自动睡眠"
 date: 2020-06-27
 lastmod: 2021-06-27
 author: ["沧海"]
-tags: ["Win10"]
+tags: ["Windows"]
 description: ""
 comments: true
 showToc: false
