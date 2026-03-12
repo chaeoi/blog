@@ -1,5 +1,5 @@
 ---
-title: "用 Docker跑Windows虚拟机"
+title: "用Docker跑Windows虚拟机"
 date: 2026-03-12
 lastmod: 2026-03-12
 author: ["沧海"]
@@ -77,13 +77,13 @@ auto
 none
 ```
 
-如果我更看重性能，一般会优先在 `nvme`、`scsi`、`blk` 里选。  如果更看重兼容性，就选 `sata`。
+如果更看重性能，一般会优先在`nvme`、`scsi`、`blk`里选。  如果更看重兼容性，就选`sata`。
 
 ```bash
 -e DISK_SIZE=256G
 ```
 
-虚拟磁盘大小，默认是 `64G`。
+虚拟磁盘大小，默认是`64G`。
 
 > 虚拟机稳定以后，我一般会改用第二个命令：
 
@@ -108,21 +108,19 @@ docker run -d \
   dockurr/windows
 ```
 
-这个就是无头模式，只保留 `RDP`，不用再开网页控制台。系统装好、远程桌面正常以后，我更推荐这个。
+这个就是无头模式，只保留`RDP`，不用再开网页控制台。系统装好、远程桌面正常以后，我更推荐这个。
 
 ---
-
-下面是完整的变量速查表。
 
 #### Windows 安装相关变量
 
 | 变量 | 默认值 | 作用 | 可选值 |
 |---|---|---|---|
-| `APP` | `Windows` | 页面或日志里的产品名 | 任意字符串 |
+| `APP` | `Windows` | 产品名 | 任意字符串 |
 | `SUPPORT` | `https://github.com/dockur/windows` | 支持链接 | 任意 URL |
 | `PLATFORM` | `x64` | 平台标识 | `x64` |
-| `VERSION` | `11` | 选择安装版本或自定义 ISO | `11` `11e` `11i` `11l` `10` `10e` `10i` `10l` `8e` `7u` `7e` `7x86` `7ux86` `7ex86` `vu` `ve` `vistax86` `vux86` `vex86` `xp` `xp64` `2k` `2025` `2022` `2019` `hv` `2016` `2012` `2008` `2003` `tiny11` `tiny10` `core11` `nano11`，或直接填写 ISO URL |
-| `LANGUAGE` | `en` | 安装语言 | 语言名或语言代码 |
+| `VERSION` | `11` | 安装版本 | 如`11``10``ISO URL` |
+| `LANGUAGE` | `en` | 安装语言 | 语言代码 |
 | `REGION` | 空 | 区域设置 | 如 `en-US`、`fr-FR` |
 | `KEYBOARD` | 空 | 键盘布局 | 如 `en-US`、`de-DE` |
 | `USERNAME` | `Docker` | 安装时创建的用户名 | 字母数字及 `@!._-` |
