@@ -36,6 +36,33 @@
     margin-bottom: 10px;
 }
 
+.post-content .post-table-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: var(--content-gap);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.post-content .post-table-wrapper > table:not(.highlighttable, .highlight table, .gist .highlight) {
+    display: table;
+    width: max-content;
+    min-width: 100%;
+    max-width: none;
+    margin-bottom: 0;
+    table-layout: auto;
+}
+
+.post-content table:not(.highlighttable, .highlight table, .gist .highlight) th,
+.post-content table:not(.highlighttable, .highlight table, .gist .highlight) td {
+    white-space: normal;
+    word-break: keep-all;
+}
+
+.post-content table:not(.highlighttable, .highlight table, .gist .highlight) td code {
+    white-space: nowrap;
+}
+
 @media screen and (min-width: 768px) {
     ::-webkit-scrollbar {
         width: 15px;
