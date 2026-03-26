@@ -27,7 +27,7 @@ docker run -d \
   -v /opt/windows:/storage \
   -v /opt/windows/windows.iso:/boot.iso \
   -e MANUAL=Y \
-  -e RAM_SIZE=6G \
+  -e RAM_SIZE=4G \
   -e CPU_CORES=24 \
   -e DISK_TYPE=nvme \
   -e DISK_SIZE=256G \
@@ -49,7 +49,7 @@ docker run -d \
 表示手动安装。第一次部署时我一般都会先保留手动
 
 ```bash
--e RAM_SIZE=6G
+-e RAM_SIZE=4G
 ```
 
 虚拟机内存大小，默认是`4G`
@@ -98,8 +98,7 @@ docker run -d \
   -p 3389:3389/udp \
   -v /opt/windows:/storage \
   -v /opt/windows/windows.iso:/boot.iso \
-  -e MANUAL=Y \
-  -e RAM_SIZE=6G \
+  -e RAM_SIZE=4G \
   -e CPU_CORES=24 \
   -e DISK_TYPE=nvme \
   -e DISK_SIZE=256G \
