@@ -3,7 +3,7 @@ title: "RenewX之Docker部署"
 date: 2022-11-21
 lastmod: 2022-11-21
 author: ["沧海"]
-tags: ["RenewX"]
+tags: ["Docker", "RenewX"]
 description: ""
 comments: true
 showToc: false

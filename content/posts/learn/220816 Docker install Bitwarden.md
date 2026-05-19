@@ -3,7 +3,7 @@ title: "Bitwarden之Docker部署"
 date: 2022-08-16
 lastmod: 2022-08-16
 author: ["沧海"]
-tags: ["Bitwarden"]
+tags: ["Docker", "Bitwarden"]
 description: ""
 comments: true
 showToc: false

@@ -3,7 +3,7 @@ title: "简单的Nginx配置"
 date: 2022-10-15
 lastmod: 2025-09-08
 author: ["沧海"]
-tags: ["Nginx"]
+tags: ["Docker", "Nginx"]
 description: ""
 comments: true
 showToc: false

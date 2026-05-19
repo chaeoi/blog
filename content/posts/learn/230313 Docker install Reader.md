@@ -3,7 +3,7 @@ title: "Reader之Docker部署"
 date: 2023-03-13
 lastmod: 2023-03-13
 author: ["沧海"]
-tags: ["Reader"]
+tags: ["Docker", "Reader"]
 description: ""
 comments: true
 showToc: false
