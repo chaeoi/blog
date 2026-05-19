@@ -12,9 +12,6 @@ hidemeta: false
 showbreadcrumbs: true
 ---
 
-
-我在一些没有单独 swap 分区的机器上，通常直接补一个 swap 文件。下面这套流程用的是 `/var/swap`，大小为 `2G`。
-
 #### 检查当前内存和 Swap
 
 ```bash
@@ -123,11 +120,3 @@ vi /etc/sysctl.conf
 ```ini
 vm.swappiness = 10
 ```
-
-#### 备注
-
-我这里顺手再记一下：
-
-- CentOS 默认更保守
-- Ubuntu 默认常见是 `60`
-- 日常服务器更常见的调优值是 `10`
