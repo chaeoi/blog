@@ -3,7 +3,7 @@ title: "Cloudreve之Docker部署"
 date: 2022-09-27
 lastmod: 2022-09-27
 author: ["沧海"]
-tags: ["Cloudreve"]
+tags: ["Docker", "Cloudreve"]
 description: ""
 comments: true
 showToc: false

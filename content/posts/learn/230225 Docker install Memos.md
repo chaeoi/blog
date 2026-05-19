@@ -3,7 +3,7 @@ title: "Memos之Docker部署"
 date: 2023-02-25
 lastmod: 2023-02-25
 author: ["沧海"]
-tags: ["Memos"]
+tags: ["Docker", "Memos"]
 description: ""
 comments: true
 showToc: false

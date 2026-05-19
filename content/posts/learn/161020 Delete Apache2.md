@@ -3,7 +3,7 @@ title: "Debian下卸载Apache2"
 date: 2016-10-20
 lastmod: 2022-12-03
 author: ["沧海"]
-tags: ["Apache"]
+tags: ["Linux", "Apache"]
 description: ""
 comments: true
 showToc: false

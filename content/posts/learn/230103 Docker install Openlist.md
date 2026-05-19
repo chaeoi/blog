@@ -3,7 +3,7 @@ title: "Openlist之Docker部署"
 date: 2023-01-03
 lastmod: 2025-06-23
 author: ["沧海"]
-tags: ["Openlist"]
+tags: ["Docker", "Openlist"]
 description: ""
 comments: true
 showToc: false

@@ -3,7 +3,7 @@ title: "DDNS之Docker部署"
 date: 2023-06-30
 lastmod: 2023-06-30
 author: ["沧海"]
-tags: ["DDNS"]
+tags: ["Docker", "DDNS"]
 description: "使用Docker部署DNS动态解析"
 comments: true
 showToc: false

@@ -3,7 +3,7 @@ title: "使用Docker安装下载利器qBittorrent"
 date: 2025-02-12
 lastmod: 2025-02-12
 author: ["沧海​"]
-tags: ["qBittorrent"]
+tags: ["Docker", "qBittorrent"]
 comments: true
 showToc: false
 TocOpen: true
