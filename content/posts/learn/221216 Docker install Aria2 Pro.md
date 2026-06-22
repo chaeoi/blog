@@ -3,7 +3,7 @@ title: "Aria2之Docker部署"
 date: 2022-12-16
 lastmod: 2022-12-16
 author: ["沧海"]
-tags: ["Docker", "Aria2"]
+tags: ["Aria2"]
 description: ""
 comments: true
 showToc: false

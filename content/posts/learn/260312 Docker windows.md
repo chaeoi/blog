@@ -3,7 +3,7 @@ title: "用Docker跑Windows虚拟机"
 date: 2026-03-12
 lastmod: 2026-03-12
 author: ["沧海"]
-tags: ["Docker", "虚拟机"]
+tags: ["虚拟机"]
 description: "记录我用dockurr/windows拉起Windows虚拟机时常用的命令，以及111个环境变量的默认值和可选值。"
 comments: true
 showToc: false

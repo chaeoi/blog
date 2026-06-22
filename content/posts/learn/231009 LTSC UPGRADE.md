@@ -3,7 +3,7 @@ title: "老坛酸菜LTSC部分易用功能恢复指南"
 date: 2023-10-09
 lastmod: 2023-10-09
 author: ["沧海​"]
-tags: ["Windows"]
+tags: ["LTSC"]
 description: "Windows LTSC看图片是真受罪啊，不过可以通过Microsoft Store安装照片应用"
 comments: true
 showToc: false

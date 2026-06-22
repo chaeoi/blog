@@ -3,7 +3,7 @@ title: "使用Docker安装FRP"
 date: 2025-07-16
 lastmod: 2025-07-16
 author: ["沧海"]
-tags: ["Docker", "FRP"]
+tags: ["FRP"]
 comments: true
 showToc: false
 TocOpen: true

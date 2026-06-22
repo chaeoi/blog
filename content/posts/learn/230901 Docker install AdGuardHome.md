@@ -3,7 +3,7 @@ title: "AdGuardHome之Docker部署"
 date: 2023-09-01
 lastmod: 2023-09-01
 author: ["沧海"]
-tags: ["Docker", "AdGuardHome"]
+tags: ["AdGuardHome"]
 description: "使用Docker部署AdGuardHome，守护网络安全"
 comments: true
 showToc: false

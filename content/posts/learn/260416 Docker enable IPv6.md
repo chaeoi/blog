@@ -3,7 +3,7 @@ title: "Docker开启IPv6"
 date: 2026-04-16
 lastmod: 2026-04-16
 author: ["沧海"]
-tags: ["Docker", "IPv6"]
+tags: ["Docker"]
 comments: true
 showToc: false
 TocOpen: true

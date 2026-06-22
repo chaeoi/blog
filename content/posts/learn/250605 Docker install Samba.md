@@ -3,7 +3,7 @@ title: "使用Docker安装Samba文件共享"
 date: 2025-06-05
 lastmod: 2025-06-05
 author: ["沧海​"]
-tags: ["Docker", "Samba"]
+tags: ["Samba"]
 comments: true
 showToc: false
 TocOpen: true

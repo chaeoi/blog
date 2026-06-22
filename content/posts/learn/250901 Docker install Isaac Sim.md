@@ -3,7 +3,7 @@ title: "使用Docker安装Isaac Sim"
 date: 2025-09-01
 lastmod: 2025-09-01
 author: ["沧海"]
-tags: ["Docker", "Isaac Sim", "NVIDIA"]
+tags: ["Isaac Sim"]
 comments: true
 showToc: false
 TocOpen: true

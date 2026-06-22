@@ -25,3 +25,26 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDesc
 	- **下载**`{7d83ee9b-2244-4e70-b1f5-5393042af1e4}`
 	- **音乐**`{a0c69a99-21c8-4671-8703-7934162fcf1d}`
 	- **桌面**`{b4bfcc3a-db2c-424c-b029-7fe99a87c641}`
+
+
+附上一个简单的一键脚本，用于隐藏几个不常用的文件夹
+```cmd
+@echo off
+title Hide This PC Folders
+echo 正在隐藏 此电脑 中的文件夹...
+
+reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{31c0dd25-9439-4f12-bf41-7ff4eda38722}\PropertyBag" /v ThisPCPolicy /t REG_SZ /d Hide /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{35286a68-3c57-41a1-bbb1-0eae73d76c95}\PropertyBag" /v ThisPCPolicy /t REG_SZ /d Hide /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{0ddd015d-b06c-45d5-8c4c-f59713854639}\PropertyBag" /v ThisPCPolicy /t REG_SZ /d Hide /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{a0c69a99-21c8-4671-8703-7934162fcf1d}\PropertyBag" /v ThisPCPolicy /t REG_SZ /d Hide /f
+
+echo.
+echo 已完成，正在重启资源管理器...
+
+taskkill /f /im explorer.exe >nul 2>nul
+start explorer.exe
+
+echo.
+echo 完成。
+pause
+```

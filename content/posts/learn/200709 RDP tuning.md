@@ -3,7 +3,7 @@ title: "RDP优化操作：开启显卡加速、60FPS与USB设备重定向"
 date: 2020-07-09
 lastmod: 2020-07-09
 author: ["沧海"]
-tags: ["Windows", "RDP"]
+tags: ["RDP"]
 description: ""
 comments: true
 showToc: false

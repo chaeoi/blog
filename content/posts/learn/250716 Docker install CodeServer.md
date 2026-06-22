@@ -3,7 +3,7 @@ title: "使用Docker部署CodeServer，并配置Codex、Claude Code"
 date: 2025-07-16
 lastmod: 2025-07-16
 author: ["沧海"]
-tags: ["Docker", "Codex", "Claude"]
+tags: ["CodeServer", "Codex", "Claude Code"]
 comments: true
 showToc: false
 TocOpen: true

@@ -3,7 +3,7 @@ title: "使用Docker Compose安装Sub2API"
 date: 2026-04-03
 lastmod: 2026-04-03
 author: ["沧海"]
-tags: ["Docker", "Sub2API", "PostgreSQL", "Redis"]
+tags: ["Sub2API"]
 comments: true
 showToc: false
 TocOpen: true
