@@ -1,10 +1,10 @@
 ---
-title: "优化 AutoCAD，加快启动和运行速度"
+title: "AutoCAD优化小妙招"
 date: 2017-03-28
 lastmod: 2017-03-28
 author: ["沧海"]
-tags: ["AutoCAD", "Windows"]
-description: "我平时最常用的 4 个 AutoCAD 优化动作：硬件加速、关闭联网组件、调整启动方式，以及清理注册表里的无用功能。"
+tags: ["AutoCAD"]
+description: ""
 comments: true
 showToc: false
 TocOpen: true
