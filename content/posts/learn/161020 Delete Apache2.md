@@ -3,7 +3,7 @@ title: "Debian下卸载Apache2"
 date: 2016-10-20
 lastmod: 2022-12-03
 author: ["沧海"]
-tags: ["Linux", "Apache"]
+tags: ["Apache"]
 description: ""
 comments: true
 showToc: false
@@ -13,7 +13,10 @@ showbreadcrumbs: true
 ---
 - 首先执行卸载命令
 ```c
-apt-get --purge remove apache2 apache2-bin apache2-doc apache2-data apache2-utils -y
+apt --purge remove apache2 apache2-bin apache2-doc apache2-data apache2-utils -y
+```
+```c
+apt autoremove -y
 ```
 - 检查是否完全卸载
 ```c
