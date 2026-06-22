@@ -3,7 +3,7 @@ title: "Linux环境下 Swap 配置方法"
 date: 2019-10-22
 lastmod: 2019-10-22
 author: ["沧海"]
-tags: ["Linux", "Swap"]
+tags: ["Swap"]
 description: "记录在 Linux 中创建、启用、持久化和调优 swap 文件的常用步骤。"
 comments: true
 showToc: false

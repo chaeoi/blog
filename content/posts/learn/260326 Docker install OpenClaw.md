@@ -3,7 +3,7 @@ title: "使用Docker安装OpenClaw"
 date: 2026-03-26
 lastmod: 2026-03-26
 author: ["沧海"]
-tags: ["Docker", "OpenClaw"]
+tags: ["OpenClaw"]
 comments: true
 showToc: false
 TocOpen: true

@@ -3,7 +3,7 @@ title: "Docker部署OpenWRT旁路由快速入门"
 date: 2023-09-02
 lastmod: 2023-09-02
 author: ["沧海"]
-tags: ["Docker", "OpenWRT"]
+tags: ["OpenWRT"]
 description: ""
 comments: true
 showToc: false

@@ -3,7 +3,7 @@ title: "简单的Nginx配置"
 date: 2022-10-15
 lastmod: 2025-09-08
 author: ["沧海"]
-tags: ["Docker", "Nginx"]
+tags: ["Nginx"]
 description: ""
 comments: true
 showToc: false
@@ -210,6 +210,8 @@ server {
 server{
     listen [::]:12345;
     proxy_ssl on;
+    proxy_ssl_server_name on;
+    proxy_ssl_name smtp.larksuite.com;
     proxy_ssl_protocols TLSv1.2 TLSv1.3;
     proxy_ssl_ciphers HIGH:!aNULL:!MD5;
     proxy_pass smtp.larksuite.com:465;

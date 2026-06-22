@@ -3,7 +3,7 @@ title: "iOS上代码块字体大小不一的解决办法"
 date: 2022-03-13
 lastmod: 2022-03-13
 author: ["沧海"]
-tags: ["Hugo", "iOS"]
+tags: ["CSS", "iOS"]
 description: "记录一次iPhone上代码块字号异常放大的问题，以及我最后采用的CSS修复办法。"
 comments: true
 showToc: false

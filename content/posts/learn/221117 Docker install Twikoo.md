@@ -3,7 +3,7 @@ title: "Twikoo之Docker部署"
 date: 2022-11-17
 lastmod: 2022-11-17
 author: ["沧海"]
-tags: ["Docker", "Twikoo"]
+tags: ["Twikoo"]
 description: ""
 comments: true
 showToc: false

@@ -3,7 +3,7 @@ title: "流氓行为之自动安装Chrome插件"
 date: 2024-02-20
 lastmod: 2024-02-20
 author: ["沧海​"]
-tags: ["Windows"]
+tags: ["Chrome"]
 description: ""
 comments: true
 showToc: false

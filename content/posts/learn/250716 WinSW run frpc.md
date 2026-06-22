@@ -3,7 +3,7 @@ title: "使用WinSW将frpc注册为Windows服务"
 date: 2025-07-16
 lastmod: 2025-07-16
 author: ["沧海"]
-tags: ["WinSW", "FRP", "Windows"]
+tags: ["WinSW", "FRP"]
 comments: true
 showToc: false
 TocOpen: true
