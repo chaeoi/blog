@@ -96,5 +96,3 @@ Claude Code的`bypassPermissions`需要在环境变量中添加`IS_SANDBOX=1`才
   }
 }
 ```
-
-！！！仅建议在容器或是沙盒内开启**full-access**
