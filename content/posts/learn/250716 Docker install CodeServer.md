@@ -83,3 +83,18 @@ sandbox_mode = "danger-full-access"
 ```
 
 这个配置只建议在自己的可信环境中使用。`approval_policy = "never"`表示不再弹出审批请求，`sandbox_mode = "danger-full-access"`表示取消文件系统沙箱限制。
+
+Claude Code的`bypassPermissions`需要在环境变量中添加`IS_SANDBOX=1`才能正常开启。
+
+```json
+{
+  "env": {
+    "IS_SANDBOX": "1"
+  },
+  "permissions": {
+    "defaultMode": "bypassPermissions"
+  }
+}
+```
+
+！！！仅建议在容器或是沙盒内开启**full-access**
