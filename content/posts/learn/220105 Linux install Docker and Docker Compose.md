@@ -52,15 +52,7 @@ apt-get install docker-ce docker-ce-cli containerd.io -y
 docker --version
 ```
 #### 安装Docker Compose
-- 使用`wget`命令下载Docker Composer，最新版地址见[Github](https://github.com/docker/compose/releases/)
+最新版地址见[Github](https://github.com/docker/compose/)
 ```c
-wget https://github.com/docker/compose/releases/download/v2.12.1/docker-compose-linux-x86_64
-```
-- 将下载的二进制文件复制到系统路径
-```c
-mv docker-compose-linux-x86_64 /usr/local/bin/docker-compose
-```
-- 设置执行权限
-```c
-chmod 755 /usr/local/bin/docker-compose
+apt install docker-compose-plugin -y
 ```
