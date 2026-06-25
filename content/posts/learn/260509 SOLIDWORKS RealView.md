@@ -1,5 +1,5 @@
 ---
-title: "SOLIDWORKS添加RTX 4080 SUPER显卡白名单"
+title: "SOLIDWORKS开启RealView"
 date: 2026-05-09
 lastmod: 2026-05-09
 author: ["沧海"]
