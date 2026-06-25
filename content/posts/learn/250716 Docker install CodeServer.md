@@ -1,5 +1,5 @@
 ---
-title: "使用Docker部署CodeServer，并配置Codex、Claude Code"
+title: "部署CodeServer，并配置Codex、Claude Code"
 date: 2025-07-16
 lastmod: 2025-07-16
 author: ["沧海"]
@@ -10,6 +10,7 @@ TocOpen: true
 hidemeta: false
 showbreadcrumbs: true
 ---
+>安装CodeServer
 
 `CodeServer`可以把 VS Code 跑在服务器上，通过浏览器直接访问。这里记录一下用 Docker 部署 `CodeServer`，并在容器里安装 `fnm`、Node.js、Codex 和 Claude Code 的步骤。
 
@@ -37,6 +38,19 @@ docker run -d \
 - `/opt/codeserver/root`用于持久化`/root`目录，重建容器后配置不会丢
 - `/opt/codeserver/project`用于存放项目文件
 
+
+不使用Docker并直接部署在宿主机上可以使用一件脚本
+
+```
+curl -fsSL https://code-server.dev/install.sh | sh
+```
+```
+sudo systemctl enable --now code-server@root
+```
+安装完成后配置文件在`/root/.config/code-server/config.yaml`，可配置地址、端口、密码等。
+
+
+>安装Claude Code及Codex
 
 安装`fnm`：
 
@@ -75,16 +89,15 @@ npm install -g @openai/codex
 npm install -g @anthropic-ai/claude-code
 ```
 
-如果需要让 Codex 默认不询问审批，并且允许完整文件系统访问，可以修改`~/.codex/config.toml`：
+如果需要让 Codex 默认不询问审批，并且允许完整文件系统访问，可以修改`~/.codex/config.toml`，这个配置只建议在自己的可信环境中使用。`approval_policy = "never"`表示不再弹出审批请求，`sandbox_mode = "danger-full-access"`表示取消文件系统沙箱限制。
 
 ```toml
 approval_policy = "never"
 sandbox_mode = "danger-full-access"
 ```
 
-这个配置只建议在自己的可信环境中使用。`approval_policy = "never"`表示不再弹出审批请求，`sandbox_mode = "danger-full-access"`表示取消文件系统沙箱限制。
 
-Claude Code的`bypassPermissions`需要在环境变量中添加`IS_SANDBOX=1`才能正常开启。
+Claude Code需要修改`~/.claude/settings.json`文件，并且`bypassPermissions`需要在环境变量中添加`IS_SANDBOX=1`才能正常开启。
 
 ```json
 {
