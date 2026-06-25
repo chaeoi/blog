@@ -19,9 +19,6 @@ docker run -d \
     --name codeserver \
     --restart always \
     --network host \
-    --privileged \
-    --user root \
-    -e DOCKER_USER=$USER \
     -e PORT=5068 \
     -e PASSWORD=password \
     -e all_proxy=socks5h://127.0.0.1:10808 \
@@ -34,12 +31,12 @@ docker run -d \
 
 - `PORT=5068`是网页访问端口，启动后访问`http://服务器IP:5068`
 - `PASSWORD`改成自己的密码
-- `--network host`会直接使用宿主机网络，配置`all_proxy=socks5h://127.0.0.1:10808`时，容器内的`127.0.0.1`就是宿主机
+- `all_proxy=socks5h://127.0.0.1:10808`配置代理方便访问Github等网站
 - `/opt/codeserver/root`用于持久化`/root`目录，重建容器后配置不会丢
 - `/opt/codeserver/project`用于存放项目文件
 
 
-不使用Docker并直接部署在宿主机上可以使用一件脚本
+不使用Docker并直接部署在宿主机上可以使用一键脚本
 
 ```
 curl -fsSL https://code-server.dev/install.sh | sh
