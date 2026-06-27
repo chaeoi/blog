@@ -13,5 +13,5 @@ showbreadcrumbs: true
 ---
 一键安装BBR加速
 ```c
-mkdir -p /opt/bbr && wget --no-check-certificate -O /opt/bbr/bbr.sh https://cdn.canghai.org/sh/bbr.sh && chmod 755 /opt/bbr/bbr.sh && bash /opt/bbr/bbr.sh
+sudo bash <(curl -sL https://cdno.canghai.org/sh/bbr.sh)
 ```

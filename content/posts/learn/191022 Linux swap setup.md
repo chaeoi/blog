@@ -33,6 +33,8 @@ dd if=/dev/zero of=/var/swap bs=1024 count=2048000
 - `bs`：块大小
 - `count`：块数量
 
+则总大小`1024*2048000=2097152000bytes≈2GB`
+
 #### 格式化 Swap 文件
 
 ```bash
@@ -63,6 +65,8 @@ free -h
 
 ```bash
 swapon -s
+```
+```bash
 cat /proc/swaps
 ```
 

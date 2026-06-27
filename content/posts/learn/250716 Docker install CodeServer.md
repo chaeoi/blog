@@ -19,6 +19,7 @@ docker run -d \
     --name codeserver \
     --restart always \
     --network host \
+    --user root \
     -e PORT=5068 \
     -e PASSWORD=password \
     -e all_proxy=socks5h://127.0.0.1:10808 \
@@ -42,9 +43,9 @@ docker run -d \
 curl -fsSL https://code-server.dev/install.sh | sh
 ```
 ```
-sudo systemctl enable --now code-server@root
+sudo systemctl enable --now code-server@$USER
 ```
-安装完成后配置文件在`/root/.config/code-server/config.yaml`，可配置地址、端口、密码等。
+安装完成后配置文件在`~/.config/code-server/config.yaml`，可配置地址、端口、密码等。
 
 
 >安装Claude Code及Codex
