@@ -1,19 +1,289 @@
+/* =========================================================================
+   自定义样式：全部集中在此（官方推荐的 assets/css/extended/ 目录，
+   构建时会自动拼进主题样式，无需改动核心 CSS）。
+   仅保留在当前官方新结构下仍生效的选择器。
+   ========================================================================= */
+
+/* ------------------------------ 全局字体 ------------------------------ */
 body {
+    /* 全站正文字体设为霞鹜文楷（代码块由浏览器默认等宽字体命中，不受影响） */
     font-family: "LXGW WenKai Screen", -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+/* ------------------------------ 布局宽度 ------------------------------ */
+:root {
+    --nav-width: 1300px;   /* 顶部导航基准宽度（官方默认 1024px，这里加宽） */
+    --main-width: 770px;   /* 正文基准宽度（官方默认 720px，这里加宽） */
+    --footer-height: 70px; /* 页脚高度 */
+}
+
+.header-nav {
+    /* 导航整体再放宽一些（官方是 +gap*2，这里 +gap*10） */
+    max-width: calc(var(--nav-width) + var(--gap) * 10);
+}
+
+.main {
+    /* 正文区域再放宽一些（官方是 +gap*2，这里 +gap*5） */
+    max-width: calc(var(--main-width) + var(--gap) * 5);
+}
+
+.footer {
+    padding: 10px; /* 页脚内边距 */
+}
+
+.footer a:hover {
+    font-weight: bolder; /* 页脚链接悬停加粗 */
+}
+
+/* ------------------------------ 正文排版 ------------------------------ */
+.post-content {
+    text-align: justify; /* 正文两端对齐 */
+}
+
+.post-title {
+    font-size: 30px; /* 文章标题字号 */
+}
+
+.post-description {
+    font-size: 15px;            /* 文章描述字号 */
+    padding-bottom: 10px;       /* 与下方内容留白 */
+    color: var(--secondary);    /* 使用次要文字色 */
+}
+
+/* 各级标题字号，h1-h3 带下边框做分隔 */
+.post-content h1 { font-size: 30px; border-bottom: 1px solid #ddd; }
+.post-content h2 { font-size: 28px; border-bottom: 1px solid #ddd; }
+.post-content h3 { font-size: 26px; border-bottom: 1px solid #ddd; }
+.post-content h4 { font-size: 22px; }
+.post-content h5 { font-size: 18px; }
+.post-content h6 { font-size: 15px; }
+
+.post-content p {
+    margin-top: 10px;    /* 段落上间距 */
+    margin-bottom: 10px; /* 段落下间距 */
+}
+
+.post-content blockquote {
+    border-left: 4px solid #42b983;              /* 引用块左侧绿色竖条 */
+    padding: 1px 15px;                           /* 引用块内边距 */
+    color: #777;                                 /* 引用文字变灰 */
+    background-color: rgba(66, 185, 131, .1);    /* 淡绿色背景 */
+}
+
+/* ------------------------------ 代码 ------------------------------ */
+.post-content code {
+    text-size-adjust: 100%;          /* 禁止移动端自动放大字体 */
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    font-size: 16px;                 /* 行内代码字号 */
+    color: #e96900;                  /* 行内代码橙色 */
+}
+
+.post-content .highlight pre code {
+    font-size: 0.7em; /* 代码块内字号略小 */
+}
+
+/* 代码块阴影 + 圆角（浅色） */
+.post-content .highlight:not(table),
+.post-content pre {
+    box-shadow: 1px 5px 5px 1px rgb(144 164 174 / 60%);
+    border-radius: var(--radius);
+}
+
+/* 代码块阴影（深色模式加深） */
+.dark .post-content .highlight:not(table),
+.dark .post-content pre {
+    box-shadow: 1px 5px 5px 1px rgb(5 10 15 / 60%);
+}
+
+/* ------------------------------ 顶部 meta 行内标签 ------------------------------ */
 .post-tags-meta {
-    display: inline;
+    display: inline;   /* 与前面的元信息同一行 */
     padding: 0;
     margin: 0;
-    list-style: none;
+    list-style: none;  /* 去掉列表小圆点 */
 }
 
 .post-tags-meta li {
     display: inline;
 }
 
+/* ------------------------------ 目录 TOC ------------------------------ */
+.toc {
+    background: var(--entry); /* 目录背景跟随卡片色 */
+}
+
+.toc li {
+    list-style: none;      /* 去掉小圆点 */
+    font-size: 0.90rem;    /* 目录字号 */
+    padding-bottom: 5px;   /* 条目间距 */
+}
+
+.toc li a:hover {
+    font-weight: 600;   /* 悬停加粗 */
+    color: #42b983;     /* 悬停变绿 */
+}
+
+/* ------------------------------ 标签聚合页 ------------------------------ */
+.terms-tags {
+    display: block;      /* 还原旧版：用块级 + 行内块居中，替代官方新版的 flex 布局 */
+    text-align: center;  /* 标签整体水平居中 */
+}
+
+.terms-tags li {
+    display: inline-block; /* 标签横向排列、随宽度换行 */
+    margin: 10px;          /* 标签之间的间距（旧版观感） */
+}
+
+.terms-tags a,
+.dark .terms-tags a {
+    background: none; /* 去掉标签默认底色 */
+}
+
+/* 标签悬停放大 */
+.terms-tags a:hover,
+.dark .terms-tags a:hover {
+    transform: scale(1.2);
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+/* ------------------------------ 分页按钮 ------------------------------ */
+.pagination a {
+    color: var(--primary);   /* 文字色 */
+    background: var(--entry); /* 背景跟随卡片色 */
+    box-shadow: 0px 2px 4px rgb(5 10 15 / 5%), 0px 7px 13px -3px rgb(5 10 15 / 30%); /* 立体阴影 */
+}
+
+/* ------------------------------ 悬停动画 ------------------------------ */
+.logo a:hover {
+    transform: scale(1.06); /* 站点 Logo 悬停轻微放大 */
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.archive-entry:hover {
+    transform: scale(1.02); /* 归档条目悬停放大 */
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+/* 首页/列表文章卡片：默认带阴影与过渡 */
+.post-entry,
+.dark .post-entry {
+    box-shadow: 0px 2px 4px rgb(5 10 15 / 5%), 0px 7px 13px -3px rgb(5 10 15 / 30%);
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+/* 文章卡片悬停放大 + 阴影加强 */
+.post-entry:hover,
+.dark .post-entry:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 4px 8px rgb(5 10 15 / 5%), 0px 7px 13px -3px rgb(5 10 15 / 30%);
+}
+
+/* 按钮：卡片底色 + 阴影过渡 */
+.button,
+.dark .button {
+    background: var(--entry);
+    box-shadow: 0px 2px 4px rgb(5 10 15 / 5%), 0px 7px 13px -3px rgb(5 10 15 / 30%);
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+/* 按钮悬停放大 */
+.button:hover,
+.dark .button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 8px rgb(5 10 15 / 5%), 0px 7px 13px -3px rgb(5 10 15 / 30%);
+}
+
+/* ------------------------------ 评论 ------------------------------ */
+.tk-comments-container {
+    font-size: 15px; /* Twikoo 评论区字号 */
+}
+
+/* ------------------------------ 滚动条 ------------------------------ */
+::-webkit-scrollbar-track {
+    background: 0 0; /* 滚动槽透明 */
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--tertiary);      /* 滑块颜色 */
+    border: 5px solid var(--theme);   /* 滑块外描边形成留白 */
+    border-radius: var(--radius);     /* 滑块圆角 */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary); /* 滑块悬停变色 */
+}
+
+/* 正文内部（非表格）的滚动条更细一些 */
+.post-content :not(table) ::-webkit-scrollbar-thumb {
+    border: 2px solid var(--code-block-bg);
+    background: rgb(113, 113, 117);
+}
+
+.post-content :not(table) ::-webkit-scrollbar-thumb:hover {
+    background: rgb(163, 163, 165);
+}
+
+/* 桌面端加宽滚动条 */
+@media screen and (min-width: 768px) {
+    ::-webkit-scrollbar {
+        width: 15px;
+        height: 13px;
+    }
+}
+
+/* ------------------------------ 头部 / 首页微调 ------------------------------ */
+#theme-toggle svg {
+    width: 24px;   /* 还原日夜切换图标尺寸（官方新版缩成了 17×17） */
+    height: 18px;
+}
+
+.header-nav {
+    padding: 0; /* 去掉官方新版给导航加的左右内缩（0 var(--gap)），让 logo/菜单回到旧版位置 */
+}
+
+.menu {
+    margin: auto var(--gap); /* 还原旧版菜单左右间距 */
+}
+
+.menu a {
+    padding: 0; /* 去掉官方新版给菜单项加的横向 8px 内边距 */
+}
+
+.logo-switches {
+    gap: 0;             /* 去掉官方新版的 0.4rem 间隙 */
+    margin: auto 4px;   /* 还原旧版日夜/语言切换区的位置 */
+    min-height: auto;   /* 取消官方新版的 min-height:stretch（影响垂直对齐） */
+}
+
+.theme-toggle {
+    padding: 0;         /* 去掉官方新版切换按钮的 0.4rem 内边距 */
+    margin: auto 4px;   /* 还原旧版切换按钮间距 */
+}
+
+.home-info .entry-content {
+    margin: 14px 0; /* 还原首页欢迎语上下的空隙（官方新版改成了 margin:0） */
+}
+
+.menu .active {
+    /* 还原选中菜单项的下划线：旧版是 2px 实线下边框，官方新版改成了 text-decoration 下划线 */
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+}
+
+.home-info .social-icons a:first-of-type {
+    /* 还原首页第一个分享图标的左缩进（官方新版把它设成了 0，变得齐左） */
+    padding-inline-start: 10px;
+}
+
+/* ------------------------------ 菜单外链箭头 ------------------------------ */
 #menu a svg {
-    display: none;
+    display: none; /* 隐藏外链菜单项后面的小箭头 */
+}
+
+/* ------------------------------ 数学公式 ------------------------------ */
+.katex {
+    font-size: 1.0em !important; /* KaTeX 公式与正文字号一致 */
 }

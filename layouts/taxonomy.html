@@ -13,13 +13,26 @@
 
 <ul class="terms-tags">
     {{- $type := .Type }}
-        {{- range $key, $value := .Data.Terms.Alphabetical }}
-            {{- $name := .Name }}
-            {{- $count := .Count }}
-            {{- with site.GetPage (printf "/%s/%s" $type $name) }}
-            <li>
-                <a href="{{ .Permalink }}">{{ .LinkTitle }} <sup><strong><sup>{{ $count }}</sup></strong></sup> </a>
-            </li>
+    {{- $terms := index site.Taxonomies $type }}
+    {{- $smallest := 1.0 }}
+    {{- $largest := 1.5 }}
+    {{- $max := 1 }}
+    {{- $min := 1 }}
+    {{- if gt (len $terms) 0 }}
+        {{- $max = add (len (index $terms.ByCount 0).Pages) 1 }}
+        {{- $min = len (index $terms.ByCount.Reverse 0).Pages }}
+    {{- end }}
+    {{- range $key, $value := .Data.Terms.Alphabetical }}
+        {{- $name := .Name }}
+        {{- $count := .Count }}
+        {{- $weight := cond (gt $max $min) (div (sub (math.Log $count) (math.Log $min)) (sub (math.Log $max) (math.Log $min))) 0.0 }}
+        {{- $fontSize := add $smallest (mul (sub $largest $smallest) $weight) }}
+        {{- with site.GetPage (printf "/%s/%s" $type $name) }}
+        <li>
+            <a href="{{ .Permalink }}" style="font-size: {{ $fontSize }}rem; font-weight: {{ mul $fontSize 200 }};">
+                {{ .LinkTitle }} <sup><strong><sup>{{ $count }}</sup></strong></sup>
+            </a>
+        </li>
         {{- end }}
     {{- end }}
 </ul>
