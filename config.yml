@@ -62,7 +62,7 @@ params:
     ShowReadingTime: true
     ShowBreadCrumbs: true
     ShowCodeCopyButtons: true
-    hideFooter: false
+    hideFooter: true
     ShowWordCount: true
     ShowLastMod: true
     ShowToc: true
@@ -126,10 +126,8 @@ markup:
                 delimiters:
                     block:
                         - ["$$", "$$"]
-                        - ["\\[", "\\]"]
                     inline:
                         - ["$", "$"]
-                        - ["\\(", "\\)"]
     highlight:
         noClasses: false
         codeFences: true

@@ -9,9 +9,11 @@
 Twikoo，配置在 `config.yml` 的 `params.twikoo`，脚本走 `registry.npmmirror.com`。
 - `layouts/_partials/comments.html`
 
-### 页脚：运行时间 + 访问统计
+### 页脚：运行时间 + 访问统计 + 版权
 - 显示网站运行时长，起始时间取 `params.StartDate`
 - 访问统计用 [vercount](https://vercount.one)（`cn.vercount.one/js`），沿用 `busuanzi_value_*` 的 span id
+- 统计下面一行是版权 `Copyright © StartYear-当前年 | 站点名`
+- config 设 `hideFooter: true` 关掉官方自带的 "© · Powered by" 那行，整个页脚改由 extend_footer 输出
 - `layouts/_partials/extend_footer.html`
 
 ### KaTeX + 霞鹜文楷
@@ -31,4 +33,16 @@ Twikoo，配置在 `config.yml` 的 `params.twikoo`，脚本走 `registry.npmmir
 
 ### 菜单外链箭头
 官方会给外链菜单项加个 ↗ 箭头，用 CSS 隐藏掉。
+- `assets/css/extended/custom.css`
+
+### 首页/列表摘要
+用文章 `description` 代替官方的自动摘要（`.Summary`）。
+- `layouts/list.html`
+
+### 标签云
+`/tags/` 按每个标签的文章数对数加权算字号（1~1.5rem），文章多的标签更大，配合悬停放大还原标签云效果；空分类（categories/series 无词条）做了守卫避免报错。
+- `layouts/taxonomy.html`
+
+### 自定义样式
+恢复的美化样式集中在这里，逐条注释。包含：加宽导航/正文、正文两端对齐、各级标题下划线、引用块绿色、行内代码橙色 + 代码块阴影、TOC 样式、标签云居中 + 悬停放大、分页按钮、卡片/Logo/按钮悬停动画、评论字号、滚动条。另有几处对官方新版的还原：日夜切换图标尺寸（官方缩成了 17×17）、首页欢迎语下方空隙（官方改成了 margin:0）。
 - `assets/css/extended/custom.css`
