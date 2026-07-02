@@ -60,12 +60,10 @@ params:
     disableThemeToggle: false
     DateFormat: "2006-01-02"
     ShowReadingTime: true
-    disableSpecialistPost: true
     ShowBreadCrumbs: true
     ShowCodeCopyButtons: true
     hideFooter: false
     ShowWordCount: true
-    VisitCount: true
     ShowLastMod: true
     ShowToc: true
     TocOpen: true
@@ -122,7 +120,18 @@ markup:
     goldmark:
         renderer:
             unsafe: true
+        extensions:
+            passthrough:
+                enable: true
+                delimiters:
+                    block:
+                        - ["$$", "$$"]
+                        - ["\\[", "\\]"]
+                    inline:
+                        - ["$", "$"]
+                        - ["\\(", "\\)"]
     highlight:
+        noClasses: false
         codeFences: true
         guessSyntax: true
         lineNos: false
