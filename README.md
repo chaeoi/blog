@@ -1,12 +1,7 @@
 # Canghai's Blog
 
-基于 Hugo + [PaperMod](https://github.com/adityatelange/hugo-PaperMod) 的个人博客，主题代码内嵌在仓库里（`layouts/`、`assets/`、`i18n/`），在官方基础上做了一些定制。
+基于 Hugo + [PaperMod](https://github.com/adityatelange/hugo-PaperMod) 的个人博客，在官方基础上做了一些定制。
 
-## 主题来源
-
-- Fork 自 https://github.com/adityatelange/hugo-PaperMod
-- 同步到上游 commit `154d006`（2026-05-10），已是 PaperMod 新版 layouts 结构
-- 构建需要 **Hugo Extended ≥ 0.146**
 
 ## 改动内容
 
@@ -37,15 +32,3 @@ Twikoo，配置在 `config.yml` 的 `params.twikoo`，脚本走 `registry.npmmir
 ### 菜单外链箭头
 官方会给外链菜单项加个 ↗ 箭头，用 CSS 隐藏掉。
 - `assets/css/extended/custom.css`
-
-### config 其它调整
-- `markup.highlight.noClasses: false`，让代码块的亮/暗色主题生效
-- 删掉了没用到的 `VisitCount`、`disableSpecialistPost`
-- Google Analytics 保持顶层 `googleAnalytics` 一行，由 Hugo 内建模板处理
-
-## 本地开发
-
-```bash
-hugo server -D
-hugo --gc --minify
-```
