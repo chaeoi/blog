@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="https://registry.npmmirror.com/lxgw-wenkai-screen-web/latest/files/style.css" />
+
+{{- if or .Params.math site.Params.math }}
+<link rel="stylesheet" href="https://registry.npmmirror.com/katex/0.16.11/files/dist/katex.min.css">
+<script defer src="https://registry.npmmirror.com/katex/0.16.11/files/dist/katex.min.js"></script>
+<script defer src="https://registry.npmmirror.com/katex/0.16.11/files/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false}
+        ]
+    });"></script>
+{{- end }}
