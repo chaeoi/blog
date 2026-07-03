@@ -138,6 +138,10 @@ body {
     padding-bottom: 0.1rem;
 }
 
+#menu a svg {
+    display: none;
+}
+
 .terms-tags {
     text-align: center;
 }
