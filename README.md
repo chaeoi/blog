@@ -11,7 +11,7 @@ Twikoo，配置在 `config.yml` 的 `params.twikoo`，脚本走 `registry.npmmir
 
 ### 页脚：运行时间 + 访问统计 + 版权
 - 显示网站运行时长，起始时间取 `params.StartDate`
-- 访问统计用 [vercount](https://vercount.one)（`cn.vercount.one/js`），沿用 `busuanzi_value_*` 的 span id
+- 访问统计用 [vercount](https://vercount.one)（`cn.vercount.one/js`）
 - 统计下面一行是版权 `Copyright © StartYear-当前年 | 站点名`
 - config 设 `hideFooter: true` 关掉官方自带的 "© · Powered by" 那行，整个页脚改由 extend_footer 输出
 - `layouts/_partials/extend_footer.html`
