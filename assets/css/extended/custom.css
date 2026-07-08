@@ -145,6 +145,7 @@ body {
 .terms-tags {
     text-align: center;
     justify-content: center;
+    align-items: center;
 }
 
 .terms-tags a {
