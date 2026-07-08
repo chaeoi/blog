@@ -143,13 +143,19 @@ body {
 }
 
 .terms-tags {
+    display: block;
     text-align: center;
-    justify-content: center;
-    align-items: center;
+}
+
+.terms-tags li {
+    display: inline-block;
+    margin: 10px;
 }
 
 .terms-tags a {
     background: none;
+    padding: 3px 10px;
+    border-radius: 6px;
     transition: transform 0.4s ease;
 }
 
