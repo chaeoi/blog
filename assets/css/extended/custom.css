@@ -2,6 +2,8 @@
     --footer-height: 70px;
     --nav-width: 1300px;
     --main-width: 770px;
+    --font-text: "LXGW WenKai Screen", ui-sans-serif, system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    --font-mono: "LXGW WenKai Mono Screen", ui-monospace, "SFMono-Regular", Consolas, monospace;
 }
 
 .nav {
@@ -15,7 +17,7 @@
 body {
     font-size: 18px;
     line-height: 1.6;
-    font-family: "LXGW WenKai Screen", sans-serif;
+    font-family: var(--font-text);
 }
 
 .post-content {
@@ -85,7 +87,7 @@ body {
 .post-content code {
     font-size: 16px;
     color: #e96900;
-    font-family: "LXGW WenKai Screen", sans-serif;
+    font-family: var(--font-mono);
     text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
