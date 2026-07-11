@@ -1,7 +1,7 @@
 :root {
     --footer-height: 70px;
     --nav-width: 1300px;
-    --main-width: 770px;
+    --main-width: 820px;
     --font-text: "LXGW WenKai Screen", ui-sans-serif, system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
     --font-mono: "LXGW WenKai Mono Screen", ui-monospace, "SFMono-Regular", Consolas, monospace;
 }
