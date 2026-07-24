@@ -21,7 +21,7 @@ docker run -d \
   --restart always \
   --network host \
   -v /opt/frp/frps.toml:/frp/frps.toml \
-  fatedier/frps:v0.64.0 \
+  fatedier/frps:v0.70.1 \
   -c /frp/frps.toml
 ```
 
@@ -40,7 +40,7 @@ docker run -d \
   --restart always \
   --network host \
   -v /opt/frp/frpc.toml:/frp/frpc.toml \
-  fatedier/frpc:v0.64.0 \
+  fatedier/frpc:v0.70.1 \
   -c /frp/frpc.toml
 ```
 
