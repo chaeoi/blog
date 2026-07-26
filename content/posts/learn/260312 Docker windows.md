@@ -1,7 +1,7 @@
 ---
 title: "用Docker跑Windows虚拟机"
 date: 2026-03-12
-lastmod: 2026-03-12
+lastmod: 2026-07-26
 author: ["沧海"]
 tags: ["虚拟机"]
 description: "记录我用dockurr/windows拉起Windows虚拟机时常用的命令，以及111个环境变量的默认值和可选值。"
@@ -21,7 +21,7 @@ docker run -d \
   --device=/dev/kvm \
   --device=/dev/net/tun \
   --cap-add NET_ADMIN \
-  -p 8006:8006 \
+  -p 5021:8006 \
   -p 3389:3389/tcp \
   -p 3389:3389/udp \
   -v /opt/windows:/storage \
@@ -34,7 +34,7 @@ docker run -d \
   dockurr/windows
 ```
 
-这个命令适合第一次装系统的时候用，因为它保留了网页控制台，远程桌面没配好之前，至少还能从浏览器进去看安装过程。我自己最常改的环境变量基本就是下面这些：
+这个命令适合第一次装系统的时候用，因为它保留了网页控制台，可以通过`http://服务器IP:5021`查看安装过程。远程桌面没配好之前，至少还能从浏览器进去操作。我自己最常改的环境变量基本就是下面这些：
 
 ```
 -v /opt/windows/windows.iso:/boot.iso

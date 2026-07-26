@@ -22,3 +22,5 @@ docker run -d \
     -v /opt/openlist:/opt/openlist/data \
     openlistteam/openlist:latest
 ```
+
+监听端口可在配置文件`/opt/openlist/config.json`中修改，如`"http_port": 5008`

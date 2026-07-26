@@ -11,7 +11,7 @@ TocOpen: true
 hidemeta: false
 showbreadcrumbs: true
 ---
-启动容器，配置离线下载，需要监听其他端口，采用Host模式，默认端口5212，可在conf.ini修改，更多配置详情见[官方文档](https://docs.cloudreve.org/getting-started/config)
+启动容器，配置离线下载，需要监听其他端口，采用Host模式，默认端口5212，可在conf.ini修改，如`Listen = :5012`。更多配置详情见[官方文档](https://docs.cloudreve.org/zh/overview/configure)
 ```c
 docker run -d \
     --name cloudreve \

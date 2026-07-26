@@ -1,7 +1,7 @@
 ---
 title: "使用Docker安装OpenClaw"
 date: 2026-03-26
-lastmod: 2026-03-26
+lastmod: 2026-07-26
 author: ["沧海"]
 tags: ["OpenClaw"]
 comments: true
@@ -47,7 +47,7 @@ docker run -d \
   -v /opt/openclaw:/home/node/.openclaw \
   -v /opt/openclaw/workspace:/home/node/.openclaw/workspace \
   ghcr.io/openclaw/openclaw:latest \
-  node dist/index.js gateway --bind lan --port 5099
+  node dist/index.js gateway --bind lan --port 5091
 ```
 
 其中：
@@ -55,7 +55,7 @@ docker run -d \
 - `/opt/openclaw`用于保存 OpenClaw 配置
 - `/opt/openclaw/workspace`用于保存工作目录
 - `--network host`表示直接使用宿主机网络
-- `--bind lan --port 5099`表示在局域网监听`5099`端口
+- `--bind lan --port 5091`表示在局域网监听`5091`端口
 
 启动后可以查看容器状态：
 
