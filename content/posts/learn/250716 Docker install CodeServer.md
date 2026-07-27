@@ -1,18 +1,19 @@
 ---
-title: "部署CodeServer，并配置Codex、Claude Code"
+title: "部署CodeServer"
 date: 2025-07-16
-lastmod: 2025-07-16
+lastmod: 2026-07-27
 author: ["沧海"]
-tags: ["CodeServer", "Codex", "Claude Code"]
+tags: ["CodeServer"]
 comments: true
 showToc: false
 TocOpen: true
 hidemeta: false
 showbreadcrumbs: true
 ---
->安装CodeServer
 
-`CodeServer`可以把 VS Code 跑在服务器上，通过浏览器直接访问。这里记录一下用 Docker 部署 `CodeServer`，并在容器里安装 `fnm`、Node.js、Codex 和 Claude Code 的步骤。
+`CodeServer`可以把 VS Code 运行在服务器上，通过浏览器直接访问。这里记录一下使用 Docker 和安装脚本部署`CodeServer`的方法。
+
+> Docker安装CodeServer
 
 ```bash
 docker run -d \
@@ -31,79 +32,29 @@ docker run -d \
 需要注意几点：
 
 - `PORT=5068`是网页访问端口，启动后访问`http://服务器IP:5068`
-- `PASSWORD`改成自己的密码
-- `all_proxy=socks5h://127.0.0.1:10808`配置代理方便访问Github等网站
-- `/opt/codeserver/root`用于持久化`/root`目录，重建容器后配置不会丢
+- `PASSWORD`需要改成自己的密码
+- `all_proxy=socks5h://127.0.0.1:10808`用于配置网络代理，不需要时可以删除
+- `/opt/codeserver/root`用于持久化`/root`目录，重建容器后配置不会丢失
 - `/opt/codeserver/project`用于存放项目文件
 
+> 在宿主机安装CodeServer
 
-不使用Docker并直接部署在宿主机上可以使用一键脚本
+不使用 Docker 时，可以通过官方安装脚本直接部署：
 
-```
+```bash
 curl -fsSL https://code-server.dev/install.sh | sh
 ```
-```
+
+安装完成后启动服务并设置开机自启：
+
+```bash
 sudo systemctl enable --now code-server@$USER
 ```
-安装完成后配置文件在`~/.config/code-server/config.yaml`，可配置地址、端口、密码等。
 
+配置文件位于：
 
->安装Claude Code及Codex
-
-安装`fnm`：
-
-```bash
-curl -o- https://fnm.vercel.app/install | bash
+```txt
+~/.config/code-server/config.yaml
 ```
 
-安装完成后重新打开终端，或者执行：
-
-```bash
-source ~/.bashrc
-```
-
-安装 Node.js 24：
-
-```bash
-fnm install 24
-```
-
-确认版本：
-
-```bash
-node -v
-npm -v
-```
-
-安装 Codex：
-
-```bash
-npm install -g @openai/codex
-```
-
-安装 Claude Code：
-
-```bash
-npm install -g @anthropic-ai/claude-code
-```
-
-如果需要让 Codex 默认不询问审批，并且允许完整文件系统访问，可以修改`~/.codex/config.toml`，这个配置只建议在自己的可信环境中使用。`approval_policy = "never"`表示不再弹出审批请求，`sandbox_mode = "danger-full-access"`表示取消文件系统沙箱限制。
-
-```toml
-approval_policy = "never"
-sandbox_mode = "danger-full-access"
-```
-
-
-Claude Code需要修改`~/.claude/settings.json`文件，并且`bypassPermissions`需要在环境变量中添加`IS_SANDBOX=1`才能正常开启。
-
-```json
-{
-  "env": {
-    "IS_SANDBOX": "1"
-  },
-  "permissions": {
-    "defaultMode": "bypassPermissions"
-  }
-}
-```
+可以在配置文件中修改监听地址、端口和密码等设置。
