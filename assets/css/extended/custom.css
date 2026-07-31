@@ -58,6 +58,7 @@ body {
 }
 
 .post-content table:not(.highlighttable, .highlight table, .gist .highlight) {
+    display: table;
     width: 100%;
     max-width: 100%;
     table-layout: fixed;
