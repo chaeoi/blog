@@ -58,19 +58,19 @@ body {
 }
 
 .post-content table:not(.highlighttable, .highlight table, .gist .highlight) {
-    display: block;
+    width: 100%;
     max-width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    table-layout: fixed;
 }
 
 .post-content table:not(.highlighttable, .highlight table, .gist .highlight) th,
 .post-content table:not(.highlighttable, .highlight table, .gist .highlight) td {
-    word-break: keep-all;
+    text-align: center;
+    overflow-wrap: anywhere;
 }
 
 .post-content table:not(.highlighttable, .highlight table, .gist .highlight) td code {
-    white-space: nowrap;
+    white-space: normal;
 }
 
 .post-content a[href^="http"] {
