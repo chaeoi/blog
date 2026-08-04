@@ -46,6 +46,12 @@ sandbox_mode = "danger-full-access"
 npm install -g @anthropic-ai/claude-code
 ```
 
+使用镜像仓库安装
+
+```bash
+npm install -g @anthropic-ai/claude-code --registry=https://registry.npmmirror.com
+```
+
 如需启用`bypassPermissions`，修改：
 
 ```txt
