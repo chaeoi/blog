@@ -19,6 +19,12 @@ showbreadcrumbs: true
 npm install -g @openai/codex
 ```
 
+使用镜像仓库安装
+
+```bash
+npm install -g @openai/codex --registry=https://registry.npmmirror.com
+```
+
 如果需要让 Codex 默认不询问审批，并允许访问完整文件系统，可以修改：
 
 ```txt

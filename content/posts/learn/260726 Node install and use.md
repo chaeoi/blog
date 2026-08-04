@@ -83,6 +83,12 @@ registry=https://registry.npmmirror.com/
 npm config set registry https://registry.npmmirror.com/
 ```
 
+只在本次安装时使用仓库：
+
+```bash
+npm install package-name --registry=https://registry.npmmirror.com
+```
+
 设置代理：
 
 ```bash
