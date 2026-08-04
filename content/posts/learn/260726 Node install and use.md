@@ -21,12 +21,16 @@ curl -o- https://fnm.vercel.app/install | bash
 source ~/.bashrc
 ```
 
-安装 Node.js 24，并设置为默认版本：
+安装 Node.js 24：
 
 ```bash
 fnm install 24
-fnm use 24
-fnm default 24
+```
+
+可用镜像仓库安装
+
+```bash
+fnm install 24 --node-dist-mirror=https://cdn.npmmirror.com/binaries/node
 ```
 
 确认版本：
@@ -35,21 +39,6 @@ fnm default 24
 node -v
 npm -v
 ```
-
-查看已经安装和当前使用的版本：
-
-```bash
-fnm list
-fnm current
-```
-
-项目目录中可以创建`.node-version`文件：
-
-```txt
-24
-```
-
-进入项目目录后执行`fnm use`即可切换到对应版本。
 
 > Windows安装ZIP便携版
 
@@ -68,7 +57,6 @@ D:\Portable Software\Node
 重新打开终端并确认版本：
 
 ```cmd
-where node
 node -v
 npm -v
 ```
