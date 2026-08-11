@@ -42,14 +42,14 @@ ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_bastion -C "bastion"
 
 ```bash
 ssh-copy-id -i ~/.ssh/id_ed25519_bastion.pub \
-  -p 2222 jumpuser@jump.example.com
+  -p 22 ubuntu@1.2.3.4
 ```
 
 各参数的含义如下：
 
 - `-i ~/.ssh/id_ed25519_bastion.pub`：指定要安装的公钥。
-- `-p 2222`：指定跳板机的 SSH 端口。
-- `jumpuser@jump.example.com`：跳板机的用户名和地址。
+- `-p 22`：指定跳板机的 SSH 端口。
+- `ubuntu@1.2.3.4`：跳板机的用户名和地址。
 
 首次连接时，SSH 会先要求确认跳板机的主机指纹，然后提示输入一次跳板机账户密码。安装成功后，公钥会写入跳板机用户的`~/.ssh/authorized_keys`。
 
@@ -58,7 +58,7 @@ ssh-copy-id -i ~/.ssh/id_ed25519_bastion.pub \
 ```bash
 ssh -i ~/.ssh/id_ed25519_bastion \
   -o IdentitiesOnly=yes \
-  -p 2222 jumpuser@jump.example.com
+  -p 22 ubuntu@1.2.3.4
 ```
 
 如果私钥设置了密钥口令，此时可能要求输入该口令。这是在本机解锁私钥，不是再次输入跳板机账户密码。
@@ -75,23 +75,20 @@ ssh-add ~/.ssh/id_ed25519_bastion
 编辑本机 SSH 配置文件：
 
 ```bash
-nano ~/.ssh/config
+vim ~/.ssh/config
 ```
 
 写入以下配置，并将示例值替换为实际值：
 
 ```sshconfig
-# 跳板机：始终使用指定的独立密钥
 Host bastion
-    HostName jump.example.com
-    User jumpuser
-    Port 2222
+    HostName 1.2.3.4
+    User ubuntu
+    Port 22
     IdentityFile ~/.ssh/id_ed25519_bastion
     IdentitiesOnly yes
 
-# 目标主机统一通过跳板机连接
 Host server??.local
-    User targetuser
     ProxyJump bastion
 ```
 
@@ -103,10 +100,8 @@ chmod 600 ~/.ssh/config
 
 `IdentityFile`指定刚才生成的私钥，`IdentitiesOnly yes`要求 SSH 只使用该条目指定的身份凭据连接跳板机，避免尝试过多其他密钥。
 
-如果不同目标主机使用不同用户名，可以删除`User targetuser`，在连接时指定用户名：
-
 ```bash
-ssh anotheruser@server01.local
+ssh ubuntu@server01.local
 ```
 
 `server??.local`中的两个`?`分别匹配一个字符，因此可以匹配`server01.local`、`server25.local`和`server99.local`。它也可能匹配由其他两个字符组成的名称；如果必须严格限定主机范围，可以在同一个`Host`后逐一列出允许的主机名。
@@ -122,9 +117,9 @@ ssh bastion
 再连接目标主机：
 
 ```bash
-ssh server01.local
-ssh server25.local
-ssh server99.local
+ssh ubuntu@server01.local
+ssh ubuntu@server25.local
+ssh ubuntu@server99.local
 ```
 
 SSH 会使用指定私钥完成跳板机认证，再由跳板机连接目标服务器。跳板机配置密钥后，通常不会再要求输入跳板机账户密码；如果目标主机仍使用密码认证，SSH 接下来还会提示输入目标机账户密码。
@@ -136,14 +131,14 @@ SSH 会使用指定私钥完成跳板机认证，再由跳板机连接目标服�
 查看目标主机最终采用的 SSH 配置：
 
 ```bash
-ssh -G server01.local | grep -E \
+ssh -G ubuntu@server01.local | grep -E \
   '^(hostname|user|port|proxyjump|identityfile) '
 ```
 
 查看详细连接过程：
 
 ```bash
-ssh -v server01.local
+ssh -v ubuntu@server01.local
 ```
 
 如果跳板机可以登录但目标主机无法连接，应确认目标主机名能否被跳板机解析、跳板机能否访问目标机的 SSH 端口，以及防火墙是否放行相应连接。
