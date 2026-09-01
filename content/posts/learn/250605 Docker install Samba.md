@@ -22,7 +22,12 @@ docker run -d \
     dperson/samba \
     -u "canghai;123456"
 ```
+
 推荐配置如下
+
+```bash
+vim /opt/samba/smb.conf
+```
 
 ```conf
 [global]
