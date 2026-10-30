@@ -1,5 +1,5 @@
 ---
-title: "Linux设置笔记本盒盖不关机"
+title: "Linux设置笔记本合盖不关机"
 date: 2019-04-03
 lastmod: 2019-04-03
 author: ["沧海"]
