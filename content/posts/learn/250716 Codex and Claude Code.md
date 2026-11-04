@@ -25,20 +25,11 @@ npm install -g @openai/codex
 npm install -g @openai/codex --registry=https://registry.npmmirror.com
 ```
 
-如果需要让 Codex 默认不询问审批，并允许访问完整文件系统，可以修改：
+启动时跳过审批和沙箱：
 
-```txt
-~/.codex/config.toml
+```bash
+codex --yolo
 ```
-
-写入：
-
-```toml
-approval_policy = "never"
-sandbox_mode = "danger-full-access"
-```
-
-该配置会取消审批和文件系统沙箱，只建议在自己的可信环境中使用。
 
 > 安装Claude Code
 
@@ -52,23 +43,10 @@ npm install -g @anthropic-ai/claude-code
 npm install -g @anthropic-ai/claude-code --registry=https://registry.npmmirror.com
 ```
 
-如需启用`bypassPermissions`，修改：
+启动时跳过权限确认：
 
-```txt
-~/.claude/settings.json
+```bash
+claude --dangerously-skip-permissions
 ```
 
-写入：
-
-```json
-{
-  "env": {
-    "IS_SANDBOX": "1"
-  },
-  "permissions": {
-    "defaultMode": "bypassPermissions"
-  }
-}
-```
-
-`bypassPermissions`会跳过权限确认，只应在隔离且可信的环境中启用。
+以上参数仅对本次启动生效。它们会跳过审批或权限确认，其中 Codex 还会禁用沙箱；请仅在隔离且可信的环境中使用。
