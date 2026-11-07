@@ -3,7 +3,7 @@ title: "Multipass安装与命令"
 date: 2026-06-11
 lastmod: 2026-07-31
 author: ["沧海"]
-tags: ["Multipass"]
+tags: ["虚拟机"]
 comments: true
 showToc: false
 TocOpen: true

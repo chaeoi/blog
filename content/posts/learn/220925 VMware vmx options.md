@@ -3,7 +3,7 @@ title: "VMware常见的配置参数"
 date: 2022-09-25
 lastmod: 2022-09-25
 author: ["沧海"]
-tags: ["VMware"]
+tags: ["虚拟机"]
 description: ""
 comments: true
 showToc: false
