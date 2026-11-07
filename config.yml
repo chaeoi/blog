@@ -65,7 +65,7 @@ params:
     hideFooter: true
     ShowWordCount: true
     ShowLastMod: true
-    ShowToc: true
+    ShowToc: false
     TocOpen: true
     comments: true
     math: true

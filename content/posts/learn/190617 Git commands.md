@@ -5,7 +5,7 @@ lastmod: 2019-06-17
 author: ["沧海"]
 tags: ["Git"]
 comments: true
-showToc: true
+showToc: false
 TocOpen: true
 hidemeta: false
 showbreadcrumbs: true

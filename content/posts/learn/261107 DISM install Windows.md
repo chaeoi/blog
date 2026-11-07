@@ -6,7 +6,7 @@ author: ["沧海"]
 tags: ["虚拟机"]
 description: ""
 comments: true
-showToc: true
+showToc: false
 TocOpen: true
 hidemeta: false
 showbreadcrumbs: true
@@ -14,33 +14,9 @@ showbreadcrumbs: true
 
 VHDX 原生启动可以把一套新的 Windows 安装在 `.vhdx` 文件里，开机时通过 Windows Boot Manager 选择进入。系统运行时直接使用电脑的硬件，原来的 Windows 也可以继续保留，适合准备一套独立的测试环境。
 
-## 安装过程
+## 创建 VHDX
 
-### 准备镜像和目录
-
-本文以已有 Windows、采用 UEFI 启动的电脑为例，复用现有 EFI 系统分区。先挂载 Windows ISO，并在资源管理器中创建 `D:\NativeBoot` 文件夹。
-
-| 项目 | 本文示例 | 用途 |
-| --- | --- | --- |
-| Windows 镜像 | `E:\sources\install.wim` | ISO 中的系统映像 |
-| VHDX 文件 | `D:\NativeBoot\Win11.vhdx` | 新系统的虚拟磁盘文件 |
-| 虚拟磁盘容量 | 512 GB | VHDX 的最大容量 |
-| 挂载盘符 | `F:` | 部署时分配给 VHDX 内部 Windows 分区的盘符 |
-| 镜像索引 | `3` | 查询 WIM 后选择的版本 |
-
-**`F:` 是 VHDX 内部的分区，`D:` 是保存 VHDX 文件的物理磁盘分区。** 开始前确认 `F:` 未被其他设备占用，并按本机情况替换路径和盘符。
-
-VHDX 应保存在本地基本磁盘上。本文使用 NTFS 分区，存放位置不启用压缩或文件加密，所在卷也不使用 BitLocker 加密。动态扩展的 VHDX 会随写入数据增长，但原生启动时，存放它的分区仍要有足够空间供它扩展到最大容量，并留出分页文件空间。具体限制见[微软 VHDX 原生启动文档](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/deploy-windows-on-a-vhd--native-boot?view=windows-11)。
-
-后续部署与引导命令都在**管理员命令提示符（CMD）**中执行。Windows Terminal 中选择“命令提示符”配置文件。修改引导前，先备份当前 BCD：
-
-```cmd
-bcdedit /export D:\NativeBoot\BCD-before-install
-```
-
-备份文件保存在 `D:\NativeBoot`，之后如果需要回退引导配置，可以使用这份备份。
-
-### 用磁盘管理创建 VHDX
+本文以已有 Windows、采用 UEFI 启动的电脑为例，复用现有 EFI 系统分区。先在资源管理器中创建 `D:\NativeBoot` 文件夹，用于保存新系统的 VHDX 文件。
 
 按 `Win + X` 打开“磁盘管理”，选择菜单中的“操作 → 创建 VHD”。在创建窗口中填写：
 
@@ -55,7 +31,21 @@ bcdedit /export D:\NativeBoot\BCD-before-install
 
 初始化和格式化时，确认选中的是这个新建的虚拟磁盘。完成后，资源管理器中应能看到 `F:`，后面就把 Windows 部署到这里。VHDX 内不需要另外创建 EFI 分区，本次启动复用电脑已有的 EFI 系统分区。
 
-### 查询镜像版本并部署系统
+这里的 `F:` 是 VHDX 内部的分区，`D:` 是保存 VHDX 文件的物理磁盘分区。分配盘符前确认 `F:` 未被其他设备占用；如果改用其他盘符，后面的部署命令也要同步修改。
+
+VHDX 应保存在本地基本磁盘上。本文使用 NTFS 分区，存放位置不启用压缩或文件加密，所在卷也不使用 BitLocker 加密。动态扩展的 VHDX 会随写入数据增长，但原生启动时，存放它的分区仍要有足够空间供它扩展到最大容量，并留出分页文件空间。具体限制见[微软 VHDX 原生启动文档](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/deploy-windows-on-a-vhd--native-boot?view=windows-11)。
+
+## 部署 Windows
+
+挂载 Windows ISO。本文假设镜像文件位于 `E:\sources\install.wim`，实际路径按挂载后的盘符修改。
+
+后续部署与引导命令都在**管理员命令提示符（CMD）**中执行。Windows Terminal 中选择“命令提示符”配置文件。修改引导前，先备份当前 BCD：
+
+```cmd
+bcdedit /export D:\NativeBoot\BCD-before-install
+```
+
+备份文件保存在 `D:\NativeBoot`，之后如果需要回退引导配置，可以使用这份备份。
 
 先查看安装镜像中包含哪些 Windows 版本：
 
@@ -81,7 +71,7 @@ dir F:\Windows
 
 这里应能看到新系统的 Windows 目录。部署中途报错时，应先解决问题，再继续添加引导。
 
-### 添加引导并完成首次启动
+## 添加启动项
 
 使用刚写入的系统文件，向电脑现有的启动环境添加这套 Windows：
 
@@ -108,7 +98,7 @@ bcdedit /timeout 10
 
 第一条修改菜单中的显示名称，第二条把菜单等待时间设为 10 秒。保存正在处理的文件，然后重启，在菜单中选择“Windows 11 VHDX”，完成首次初始化。如果初始化过程中再次出现启动菜单，继续选择这套 VHDX 系统。
 
-### 进入新系统后设置默认项
+## 设置默认系统
 
 如果希望以后默认进入 VHDX 系统，先在这套新 Windows 中打开管理员 CMD，查看当前项：
 
@@ -135,7 +125,7 @@ bcdedit /timeout 0
 
 从 VHDX 启动后，里面的 Windows 分区可能显示为 `C:`，不再是部署时的 `F:`。后续以当前环境实际显示的盘符为准。引导已经记录了 VHDX 的路径，建立引导后应保持文件的位置和名称。
 
-## 不再使用时清理 BCD
+## 清理启动项
 
 以后不用这套 VHDX 系统，或者反复部署留下了多余记录，再清理对应的 BCD 启动项。要移除 VHDX 系统时，先回到准备保留的原 Windows。
 
@@ -185,7 +175,7 @@ bcdedit /import D:\NativeBoot\BCD-before-cleanup
 
 先通过磁盘管理创建好 `D:\NativeBoot\Win11.vhdx`，容量为 **512 GB**，并将内部的 NTFS 卷分配为 `F:`。下面按执行阶段集中列出命令；确认每一步成功后再继续。
 
-### 在原系统中查询镜像并部署
+### 部署与添加引导（原系统）
 
 备份 BCD，查询 WIM 中的版本：
 
@@ -199,8 +189,6 @@ dism /Get-WimInfo /WimFile:E:\sources\install.wim
 ```cmd
 dism /Apply-Image /ImageFile:E:\sources\install.wim /Index:3 /ApplyDir:F:\
 ```
-
-### 在原系统中添加引导
 
 DISM 报告成功后执行：
 
@@ -219,7 +207,7 @@ bcdedit /timeout 10
 
 随后重启，选择新系统完成初始化。
 
-### 进入 VHDX 系统后设置默认项
+### 默认启动设置（VHDX 系统）
 
 ```cmd
 bcdedit /enum {current} /v
@@ -233,7 +221,7 @@ bcdedit /enum {default} /v
 bcdedit /timeout 0
 ```
 
-### 回到准备保留的系统后清理 BCD
+### 启动项清理（原系统）
 
 备份、设置默认项并查看记录：
 

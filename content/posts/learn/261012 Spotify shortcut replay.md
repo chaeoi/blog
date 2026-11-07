@@ -6,7 +6,7 @@ author: ["沧海"]
 tags: ["iOS", "Spotify"]
 description: ""
 comments: true
-showToc: true
+showToc: false
 TocOpen: true
 hidemeta: false
 showbreadcrumbs: true
